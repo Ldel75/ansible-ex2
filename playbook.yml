@@ -87,8 +87,8 @@
   - name: build l'image worker
     command: docker build -t image_worker /TPDocker/worker  
 
-  - name: Suppresion des sources
-    file:
-      state: absent
-      path: ./TPDocker
+#  - name: Suppresion des sources
+#   file:
+#     state: absent
+#      path: ./TPDocker
   

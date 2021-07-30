@@ -45,26 +45,32 @@
       state: latest
       update_cache: yes
       force_apt_get: yes
-      
+
   - name: actually install docker
     apt:
       name: "docker-ce"
       state: latest
 
+  - name: create folder
+    file:
+      path: /TPDocker
+      state: directory
+      mode: '0755'
+
   - name: copier les sources des projets result
     copy: 
       src: result 
-      dest: /TPDocker
+      dest: /TPDocker/
     
   - name: copier les sources des projets vote 
     copy:
       src: vote  
-      dest: /TPDocker
+      dest: /TPDocker/
 
   - name: copier les sources des projets worker
     copy:
       src: worker
-      dest: /TPDocker
+      dest: /TPDocker/
 
   - name: build docker
     service:
